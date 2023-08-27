@@ -1,0 +1,15 @@
+pkgname=alsa-ucm-conf-asahi
+version=1
+revision=1
+short_desc="ALSA Use Case Manager configuration (and topologies) for Apple silicon devices"
+maintainer="signaryk <signaryk@nulltext.org>"
+license="BSD"
+homepage="https://asahilinux.org"
+depends="alsa-ucm-conf>=1.2.7"
+distfiles="https://github.com/povik/$pkgname/archive/v${version}.tar.gz"
+checksum=4ab5f5b728dc762b98e5e7f7fc8de8a3ba544185325f84150a45ea0a66358167
+
+do_install() {
+    vmkdir usr/share/alsa/ucm2/conf.d 0755
+    vcopy ucm2/conf.d/macaudio/ usr/share/alsa/ucm2/conf.d/
+}
