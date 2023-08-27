@@ -1,0 +1,22 @@
+pkgname=asahi-scripts
+version=20230606
+revision=1
+short_desc="Asahi Linux maintenance scripts"
+maintainer="signary <signaryk@nulltext.org>"
+homepage="https://asahilinux.org"
+license="MIT"
+distfiles="https://github.com/AsahiLinux/${pkgname}/archive/refs/tags/${version}.tar.gz"
+checksum=639c9a33f017ea54dbc6cb05910c4d07431302f7fbe6aebf3ea4705de1f20893
+
+do_build() {
+    make PREFIX=/usr DESTDIR=${DESTDIR} all
+}
+
+do_install() {
+    # The Fedora install target is fairly minimal (it doesn't install a bunch of systemd
+    # services like the install-arch target) and also install dracut-related files which
+    # we need for Void anyways
+    make PREFIX=/usr DESTDIR=${DESTDIR} install-fedora
+
+    vlicense LICENSE
+}
