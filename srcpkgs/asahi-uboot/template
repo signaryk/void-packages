@@ -1,0 +1,35 @@
+pkgname=asahi-uboot
+_ver=2023.04
+_asahirel=2
+version=${_ver}.asahi${_asahirel}
+revision=1
+short_desc="U-Boot for Apple Silicon Macs"
+maintainer="signaryk <signaryk@nulltext.org>"
+_commit_id=asahi-v${_ver}-${_asahirel}
+arch="aarch64*"
+homepage="https://asahilinux.org"
+license="MIT, GPL-2.0-only"
+hostmakedepends="flex bc dtc python3 openssl-devel bison"
+makedepends="bc ImageMagick"
+distfiles="https://github.com/AsahiLinux/u-boot/archive/${_commit_id}.tar.gz"
+checksum="262d0102c90da9469993fc40c22d99c1db5f3e0eef0117cb34740448bfa55cf1"
+triggers="m1n1"
+
+do_configure() {
+    make apple_m1_defconfig
+}
+
+do_build() {
+    unset CFLAGS CXXFLAGS CPPFLAGS LDFLAGS
+	if [ "$CROSS_BUILD" ]; then
+		export CROSS_COMPILE=${XBPS_CROSS_TRIPLET}-
+	fi
+    make ${makejobs}
+}
+
+do_install() {
+    vinstall u-boot-nodtb.bin 0644 usr/lib/asahi-boot
+    for dtb in arch/arm/dts/t[86]*.dtb; do
+        vinstall $dtb 0644 usr/lib/asahi-boot/dtb
+    done
+}
