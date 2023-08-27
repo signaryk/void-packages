@@ -1,0 +1,16 @@
+pkgname=asahi-configs
+version=20230517
+revision=1
+short_desc="Asahi Linux misc. configs"
+maintainer="signaryk <signaryk@nulltext.org>"
+license="MIT"
+homepage="https://asahilinux.org"
+
+do_install() {
+    vinstall ${FILESDIR}/baloofilerc 0644 etc/xdg
+    vinstall ${FILESDIR}/kcminputrc 0644 etc/xdg
+    vinstall ${FILESDIR}/kwinrc 0644 etc/xdg
+    vinstall ${FILESDIR}/20-natural-scrolling.conf 0644 usr/share/X11/xorg.conf.d
+    vinstall ${FILESDIR}/30-modeset.conf 0644 usr/share/X11/xorg.conf.d
+    vinstall ${FILESDIR}/asahi.sh 0644 etc/profile.d
+}
