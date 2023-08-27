@@ -1,0 +1,9 @@
+pkgname=asahi-desktop-meta
+version=1
+revision=1
+short_desc="Metapackage for Void-Asahi Linux pacakges"
+maintainer="signaryk <signaryk@nulltext.org>"
+homepage="https://voidasahi.nulltext.org"
+license="Public Domain"
+depends="bluedevil bluez pipewire alsa-pipewire wireplumber"
+build_style=meta
