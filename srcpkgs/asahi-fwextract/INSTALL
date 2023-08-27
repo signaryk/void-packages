@@ -1,0 +1,7 @@
+# INSTALL
+case "$ACTION" in
+post)
+	set -e
+	asahi-fwupdate
+	;;
+esac

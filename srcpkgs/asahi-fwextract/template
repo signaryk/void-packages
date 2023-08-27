@@ -1,0 +1,20 @@
+pkgname=asahi-fwextract
+version=0.5.4
+revision=1
+short_desc="Asahi Linux firmware extractor"
+maintainer="signaryk <signaryk@nulltext.org>"
+license="MIT"
+homepage="https://asahilinux.org"
+depends="python asahi-scripts>=20230606 lzfse"
+hostmakedepends="python3-build python3-installer python3-wheel python3-setuptools"
+distfiles="https://github.com/AsahiLinux/asahi-installer/archive/refs/tags/v${version}.tar.gz"
+checksum="ab9f50c077c9cb3cb46148d5030b7c80418b30453c1b712410be29ab0e39cf94"
+build_style=python3-module
+
+#do_build() {
+#    python -m build --wheel --no-isolation
+#}
+#
+#do_install() {
+#    python -m installer --destdir="${DESTDIR}" dist/*.whl
+#}
