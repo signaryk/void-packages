@@ -1,0 +1,10 @@
+pkgname=asahi-base
+version=1
+revision=1
+short_desc="Metapackage for Void-Asahi Linux pacakges"
+maintainer="signaryk <signaryk@nulltext.org>"
+homepage="https://voidasahi.nulltext.org"
+license="Public Domain"
+depends="linux-asahi asahi-uboot m1n1 asahi-scripts asahi-fwextract
+         alsa-ucm-conf-asahi asahi-configs dracut grub-arm64-efi"
+build_style=meta
