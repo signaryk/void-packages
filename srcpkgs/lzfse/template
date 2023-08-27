@@ -1,0 +1,11 @@
+pkgname=lzfse
+version=1.0
+revision=1
+short_desc="LZFSE compression library and command line tool"
+maintainer="signaryk <signaryk@nulltext.org>"
+homepage="https://github.com/lzfse/lzfse"
+license="BSD"
+distfiles="https://github.com/$pkgname/$pkgname/archive/refs/tags/$pkgname-$version.tar.gz"
+checksum="cf85f373f09e9177c0b21dbfbb427efaedc02d035d2aade65eb58a3cbf9ad267"
+arch="aarch64*"
+build_style=cmake
