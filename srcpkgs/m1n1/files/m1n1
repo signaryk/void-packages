@@ -1,0 +1,31 @@
+#!/bin/sh
+#
+# Updates m1n1 when relevant files are installed/upgraded
+#
+# Arguments:	$ACTION = [run/targets]
+#		$TARGET = [post-install/post-remove]
+#		$PKGNAME
+#		$VERSION
+#		$UPDATE = [yes/no]
+#
+ACTION="$1"
+TARGET="$2"
+PKGNAME="$3"
+VERSION="$4"
+UPDATE="$5"
+
+export PATH="usr/bin:usr/sbin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+case "$ACTION" in
+targets)
+	echo "post-install"
+	;;
+run)
+    [ "$TARGET" != "post-install" ] && exit 1
+
+    if [ -x /usr/bin/update-m1n1 ]; then
+        update-m1n1
+    fi
+esac
+
+exit 0

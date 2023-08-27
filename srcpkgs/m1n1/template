@@ -1,0 +1,39 @@
+pkgname=m1n1
+version=1.3.3
+revision=1
+_artwork_commit_id=35626c31f5c5a8a884aaff93f864795026495742
+_m1n1_commit_id=v${version}
+_artwork_srcname=artwork-${_artwork_commit_id}
+_m1n1_srcname=m1n1-${_m1n1_commit_id##v}
+makedepends="ImageMagick"
+short_desc="Asahi Linux bootloader"
+maintainer="signaryk <signaryk@nulltext.org>"
+license="MIT"
+homepage="https://asahilinux.org"
+distfiles="https://github.com/AsahiLinux/artwork/archive/${_artwork_commit_id}.tar.gz>artwork-${_artwork_commit_id}.tar.gz
+           https://github.com/AsahiLinux/m1n1/archive/${_m1n1_commit_id}.tar.gz>m1n1-${_m1n1_commit_id}.tar.gz"
+checksum="ffa129b5cae8debd4ffd97f7f1ac7f571c7ba4679793cd138918c2ae76a7103d
+          135a24e407f7f9102f1eb0f359df82b88f0e9aaa367368daf140c6e63379c7b7"
+archs="aarch64*"
+triggers="m1n1"
+
+do_prepare() {
+    rm -rf "$_m1n1_srcname"/artwork
+    cp -r "$_artwork_srcname" "$_m1n1_srcname"/artwork
+}
+
+do_build() {
+    cd "$_m1n1_srcname"
+
+    unset CFLAGS CXXFLAGS CPPFLAGS LDFLAGS
+	if [ "$CROSS_BUILD" ]; then
+		export CROSS_COMPILE=${XBPS_CROSS_TRIPLET}-
+	fi
+
+    make RELEASE=1
+}
+
+do_install() {
+    vinstall $_m1n1_srcname/build/m1n1.bin 0644 usr/lib/asahi-boot
+    vlicense $_m1n1_srcname/LICENSE
+}
