@@ -37,3 +37,4 @@ xserver-abi-video xorg-server
 libGL libglvnd
 libEGL libglvnd
 libGLES libglvnd
+asahi-kernel linux-asahi
