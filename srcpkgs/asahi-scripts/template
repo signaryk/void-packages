@@ -1,6 +1,6 @@
 pkgname=asahi-scripts
 version=20230606
-revision=1
+revision=2
 short_desc="Asahi Linux maintenance scripts"
 maintainer="signary <signaryk@nulltext.org>"
 homepage="https://asahilinux.org"
