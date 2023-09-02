@@ -13,7 +13,7 @@ homepage="https://asahilinux.org"
 distfiles="https://github.com/AsahiLinux/artwork/archive/${_artwork_commit_id}.tar.gz>artwork-${_artwork_commit_id}.tar.gz
            https://github.com/AsahiLinux/m1n1/archive/${_m1n1_commit_id}.tar.gz>m1n1-${_m1n1_commit_id}.tar.gz"
 checksum="ffa129b5cae8debd4ffd97f7f1ac7f571c7ba4679793cd138918c2ae76a7103d
-          135a24e407f7f9102f1eb0f359df82b88f0e9aaa367368daf140c6e63379c7b7"
+          4709d72f0d3a8819e569c0f433847661e8aa756149c87a80a146658937c02e18"
 archs="aarch64*"
 triggers="m1n1"
 
