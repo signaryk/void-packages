@@ -1,7 +1,7 @@
 # Template file for 'xkeyboard-config'
 pkgname=xkeyboard-config-asahi
 _asahirel=3
-version=2.35.1asahi${_asahirel}
+version=2.35.1asahi3
 revision=1
 build_style=meson
 configure_args="-Dxorg-rules-symlinks=true -Dcompat-rules=true"
