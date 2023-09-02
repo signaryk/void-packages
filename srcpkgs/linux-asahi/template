@@ -4,7 +4,7 @@ _asahiversion=6.4
 _asahirel=8
 _commit_id=asahi-${_asahiversion}-${_asahirel}
 version=6.4.0.asahi8
-revision=1
+revision=2
 short_desc="Linux kernel and modules with Asahi Linux patches"
 maintainer="signaryk <signaryk@nulltext.org>"
 license="GPL-2.0-only"
@@ -14,6 +14,9 @@ checksum="b2da094484812cfc1ab2f26212666cf50846e2d01ed3a4c2a2a33985e28cae7b"
 python_version=3
 
 archs="aarch64*"
+
+replaces="asahi-kernel>=0"
+provides="asahi-kernel-0_1"
 
 nodebug=yes  # -dbg package is generated below manually
 nostrip=yes
@@ -180,6 +183,10 @@ do_install() {
 			make ${makejobs} ARCH=${subarch:-$arch} INSTALL_DTBS_PATH=${DESTDIR}/boot/dtbs/dtbs-${_kernver} ${_cross} dtbs_install
 			;;
 	esac
+
+	# symlink dtbs for kernel version as latest for update-m1n1 script
+	cd ${DESTDIR}/boot/dtbs
+	ln -s dtbs-${_kernver} dtbs-latest
 
 	# Switch to /usr.
 	vmkdir usr
