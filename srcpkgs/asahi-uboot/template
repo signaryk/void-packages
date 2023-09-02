@@ -1,7 +1,7 @@
 pkgname=asahi-uboot
 _ver=2023.04
 _asahirel=2
-version=${_ver}.asahi${_asahirel}
+version=2023.04.asahi2
 revision=1
 short_desc="U-Boot for Apple Silicon Macs"
 maintainer="signaryk <signaryk@nulltext.org>"
