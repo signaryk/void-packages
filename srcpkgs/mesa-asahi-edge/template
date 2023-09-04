@@ -2,7 +2,7 @@
 pkgname=mesa-asahi-edge
 _asahiver=20230821
 version=23.3.0pre20230821
-revision=2
+revision=3
 build_style=meson
 #Disable LTO flag should be present, see https://gitlab.freedesktop.org/mesa/mesa/-/issues/6911
 configure_args="-Dglvnd=true -Dshared-glapi=enabled -Dgbm=enabled -Degl=enabled
@@ -29,9 +29,9 @@ archs="aarch64*"
 
 # Replace old mesa pkgs, superseded by libglvnd.
 provides="libglapi-${version}_${revision} mesa-${version}_${revision} libgbm-${version}_${revision}
-		  libgbm-devel-${version}_${revision} libOSmesa-${version}_${revision} mesa-dri-${version}_${revision}
+		  libgbm-devel-${version}_${revision} libOSMesa-${version}_${revision} mesa-dri-${version}_${revision}
           MesaLib-devel-${version}_${revision}"
-replaces="mesa>=0 libglapi>=0 libgbm>=0 libgbm-devel>=0 libOSmesa>=0 MesaLib-devel>=0 libxatracker>=0
+replaces="mesa>=0 libglapi>=0 libgbm>=0 libgbm-devel>=0 libOSMesa>=0 MesaLib-devel>=0 libxatracker>=0
 		  mesa-opencl>=0 mesa-dri>=0 mesa-vaapi>=0 mesa-vdpau>=0 mesa-XvMC>=0 mesa-vulkan-intel>=0
 		  mesa-vulkan-radeon>=0 mesa-vulkan-broadcom>=0 mesa-vulkan-overlay-layers>=0
 		  libGL>=10_1<19.2.5_2 libEGL>=10_1<19.2.5_2 libGLES>=10_1<19.2.5_2"
